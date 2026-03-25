@@ -1,0 +1,86 @@
+{
+  "name": "cortex",
+  "version": "0.1.0",
+  "type": "plugin",
+  "executesCode": true,
+  "description": "Persistent cognitive memory for AI agents — powered by YantrikDB's 5-index architecture with personality traits, bond evolution, and context assembly",
+  "author": "Yantrikos",
+  "homepage": "https://github.com/yantrikos/cortex",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yantrikos/cortex.git"
+  },
+  "license": "MIT",
+  "keywords": ["memory", "ai", "cognitive", "yantrikdb", "personality", "bonds", "traits", "agent", "cortex"],
+  "engines": {
+    "clawdbot": ">=2024.1.0",
+    "openclaw": ">=2024.1.0"
+  },
+  "install": {
+    "pip": "pip install yantrik-memory",
+    "setup": "yantrik-memory init"
+  },
+  "hooks": [
+    {
+      "name": "cortex-startup",
+      "events": ["gateway:startup", "command:new"],
+      "description": "Load agent memory on startup, save session on /new"
+    }
+  ],
+  "environment": {
+    "required": [],
+    "optional": [
+      {
+        "name": "YANTRIK_AGENT_ID",
+        "description": "Unique identifier for this agent's memories",
+        "default": "default"
+      },
+      {
+        "name": "YANTRIKDB_DB_PATH",
+        "description": "Path to YantrikDB database file",
+        "default": "./cortex.db"
+      },
+      {
+        "name": "YANTRIK_ENCRYPTION_KEY",
+        "description": "Fernet encryption key (auto-generated if not set)"
+      }
+    ]
+  },
+  "dependencies": {
+    "python": ">=3.10",
+    "pip": {
+      "required": ["yantrikdb>=0.4.0"],
+      "optional": ["cryptography"]
+    }
+  },
+  "security": {
+    "requires_review": true,
+    "reason": "Plugin executes Python to manage YantrikDB memory database and encryption keys",
+    "permissions": [
+      "file_system_read",
+      "file_system_write",
+      "code_execution",
+      "environment_variables",
+      "startup_hooks"
+    ],
+    "network_access": {
+      "no_telemetry": true,
+      "no_external_calls": true
+    },
+    "code_execution": {
+      "what": "Runs Python to manage YantrikDB memory database",
+      "when": "On startup, /new command, and memory API calls",
+      "scope": "Local filesystem only",
+      "no_remote_code": true
+    }
+  },
+  "scanner_notes": {
+    "plugin_type": "Code plugin (executesCode: true). Runs Python locally to manage a YantrikDB memory database. No remote code, no network calls.",
+    "source_verification": "GitHub: https://github.com/yantrikos/cortex, License: MIT"
+  },
+  "metadata": {
+    "clawdbot": { "emoji": "\ud83e\udde0" },
+    "openclaw": { "emoji": "\ud83e\udde0" },
+    "clawhub": { "emoji": "\ud83e\udde0", "category": "memory", "provides": { "slot": "memory" } }
+  }
+}

@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yantrik-memory"
+version = "0.1.0"
+description = "Persistent cognitive memory for AI agents — powered by YantrikDB"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Yantrikos"}
+]
+keywords = [
+    "ai", "memory", "cognitive", "yantrikdb", "personality",
+    "bonds", "agent", "context", "knowledge-graph"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "yantrikdb>=0.4.0",
+]
+
+[project.optional-dependencies]
+encryption = ["cryptography>=41.0.0"]
+all = [
+    "cryptography>=41.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yantrikos/yantrik-memory"
+Repository = "https://github.com/yantrikos/yantrik-memory"
+Documentation = "https://github.com/yantrikos/yantrik-memory#readme"
+"Bug Tracker" = "https://github.com/yantrikos/yantrik-memory/issues"
+
+[project.scripts]
+yantrik-memory = "yantrik_memory.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["yantrik_memory*"]

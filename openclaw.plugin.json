@@ -1,0 +1,27 @@
+{
+  "id": "brain",
+  "name": "Brain",
+  "version": "0.1.0",
+  "description": "Persistent cognitive memory for AI agents — personality traits, bond evolution, and context assembly powered by YantrikDB's 5-index architecture.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "agentId": {
+        "type": "string",
+        "default": "default",
+        "description": "Unique identifier for this agent's memories."
+      },
+      "dbPath": {
+        "type": "string",
+        "default": "./brain.db",
+        "description": "Path to YantrikDB database file."
+      },
+      "encryptionEnabled": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable Fernet encryption for sensitive memories."
+      }
+    }
+  }
+}

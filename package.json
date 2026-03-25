@@ -1,0 +1,58 @@
+{
+  "name": "brain",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Persistent cognitive memory for AI agents — personality traits, bond evolution, and context assembly powered by YantrikDB",
+  "author": "Yantrikos",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "openclaw.plugin.json",
+    "yantrik_memory",
+    "hooks",
+    "README.md",
+    "LICENSE",
+    "skill.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yantrikos/brain.git"
+  },
+  "homepage": "https://github.com/yantrikos/brain#readme",
+  "bugs": {
+    "url": "https://github.com/yantrikos/brain/issues"
+  },
+  "keywords": [
+    "openclaw", "plugin", "memory", "cognitive", "yantrikdb",
+    "personality", "bonds", "traits", "agent", "brain"
+  ],
+  "openclaw": {
+    "id": "brain",
+    "build": {
+      "openclawVersion": "2026.3.23",
+      "pluginSdkVersion": "2026.3.23"
+    },
+    "compat": {
+      "pluginApi": ">=1.0.0",
+      "builtWithOpenClawVersion": "2026.3.23",
+      "pluginSdkVersion": "2026.3.23",
+      "minGatewayVersion": "2026.3.23"
+    },
+    "extensions": [
+      "./dist/index.js"
+    ]
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --outdir=dist --external:@openclaw/*",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.0"
+  }
+}

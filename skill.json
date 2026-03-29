@@ -1,6 +1,6 @@
 {
   "name": "brain",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "plugin",
   "executesCode": true,
   "description": "Persistent cognitive memory for AI agents — powered by YantrikDB's 5-index architecture with personality traits, bond evolution, and context assembly",

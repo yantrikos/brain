@@ -1,4 +1,4 @@
-# Cortex
+# Brain
 
 Persistent cognitive memory for AI agents, powered by [YantrikDB](https://github.com/yantrikos/yantrikdb) ([docs](https://yantrikdb.com)).
 

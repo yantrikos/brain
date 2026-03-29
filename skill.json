@@ -1,28 +1,28 @@
 {
-  "name": "cortex",
+  "name": "brain",
   "version": "0.1.0",
   "type": "plugin",
   "executesCode": true,
   "description": "Persistent cognitive memory for AI agents — powered by YantrikDB's 5-index architecture with personality traits, bond evolution, and context assembly",
   "author": "Yantrikos",
-  "homepage": "https://github.com/yantrikos/cortex",
+  "homepage": "https://github.com/yantrikos/brain",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yantrikos/cortex.git"
+    "url": "https://github.com/yantrikos/brain.git"
   },
   "license": "MIT",
-  "keywords": ["memory", "ai", "cognitive", "yantrikdb", "personality", "bonds", "traits", "agent", "cortex"],
+  "keywords": ["memory", "ai", "cognitive", "yantrikdb", "personality", "bonds", "traits", "agent", "brain"],
   "engines": {
     "clawdbot": ">=2024.1.0",
     "openclaw": ">=2024.1.0"
   },
   "install": {
-    "pip": "pip install yantrik-memory",
+    "pip": "pip install yantrikdb",
     "setup": "yantrik-memory init"
   },
   "hooks": [
     {
-      "name": "cortex-startup",
+      "name": "brain-startup",
       "events": ["gateway:startup", "command:new"],
       "description": "Load agent memory on startup, save session on /new"
     }
@@ -38,7 +38,7 @@
       {
         "name": "YANTRIKDB_DB_PATH",
         "description": "Path to YantrikDB database file",
-        "default": "./cortex.db"
+        "default": "./brain.db"
       },
       {
         "name": "YANTRIK_ENCRYPTION_KEY",
@@ -76,7 +76,7 @@
   },
   "scanner_notes": {
     "plugin_type": "Code plugin (executesCode: true). Runs Python locally to manage a YantrikDB memory database. No remote code, no network calls.",
-    "source_verification": "GitHub: https://github.com/yantrikos/cortex, License: MIT"
+    "source_verification": "GitHub: https://github.com/yantrikos/brain, License: MIT"
   },
   "metadata": {
     "clawdbot": { "emoji": "\ud83e\udde0" },

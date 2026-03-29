@@ -1,5 +1,5 @@
 ---
-name: yantrik-memory
+name: brain
 version: 0.1.0
 type: plugin
 executesCode: true
